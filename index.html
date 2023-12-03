@@ -1,112 +1,139 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
-  <!--Title of the webpage-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Harsh's Webpage</title>
-  <!--CSS styles for page layout-->
   <style>
     body {
-      background-color: rgb(208, 180, 235);
-      margin: 0 10%;
-      font-family: sans-serif;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
     }
 
-    h1 {
+    header {
+      background-color: #333;
+      color: #fff;
       text-align: center;
-      font-family: serif;
-      font-weight: normal;
-      text-transform: uppercase;
-      border-bottom: 1px solid #57b1dc;
-      margin-top: 30px;
+      padding: 15px 0;
     }
 
-    h2 {
-      color: #1d7a03;
-      font-size: 1em;
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    header img {
+      vertical-align: middle;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 5;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav li {
+      margin: 0 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    section {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    section h2 {
+      color: #333;
+    }
+
+    section p {
+      line-height: 1.6;
+    }
+
+    section ul {
+      margin-top: 10px;
+    }
+
+    section li {
+      margin-bottom: 5px;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
     }
   </style>
 </head>
 
 <body>
-  <!--Header with a logo and the webpage title-->
-  <h1><img src="Pictures/4_star_dragon_ball.png" alt="logo" width="150"><br>Harsh's Webpage</h1>
+  <header>
+    <h1><a href="/index.html"><img src="Pictures/4_star_dragon_ball.png" alt="logo" width="80"></a><br> Harsh's Webpage
+    </h1>
+    <nav>
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/images.html">Images</a></li>
+        <li><a href="/multimedia.html">Multimedia</a></li>
+        <li><a href="/links.html">Links</a></li>
+        <li><a href="/forms.html">Forms</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <!--Welcome section-->
-  <h2><span style="text-decoration: underline;">Welcome</span></h2>
-  <p>Hello! Welcome to my webpage.<br>
-    I am going to make this webpage about one of my all time favorite anime.<br>
-    DRAGON BALL Z!!</p>
-  <br>
+  <section>
+    <div id="Welcome">
+      <h2>Welcome</h2>
+      <p>Hello! Welcome to my webpage. I am going to make this webpage about one of my all-time favorite anime,
+        DRAGON BALL Z!</p>
+    </div>
 
-  <!--About me section-->
-  <h2><span style="text-decoration: underline;">About Me</span></h2>
-  <p>
-    My name is Harsh. I am currently an Aeromedical Evacuation Mission Controller in the Air Force.
-    I’ve been stationed at Scott AFB since 2017. I’ve been in the AF for almost 11 years.<br>
-    I’m currently enrolled in the Computer Science program at Southwestern College with a Data Science Certification.
-    I’m probably about 8 classes away from completing my degree/certification including this one.
-  </p>
+    <div id="About me">
+      <h2>About Me</h2>
+      <p>My name is Harsh. I am currently an Aeromedical Evacuation Mission Controller in the Air Force. I’ve been
+        stationed at Scott AFB since 2017. I’ve been in the AF for almost 11 years. I’m currently enrolled in the
+        Computer Science program at Southwestern College with a Data Science Certification. I’m probably about 8
+        classes away from completing my degree/certification, including this one.</p>
 
-  <P>
-    As for my personal life, I'm married and have a beautiful 7-month-old daughter named Videl. We have a fluffy
-    pomeranian named Milady. She's a pretty old lady now but does not act like it.
-  </P>
+      <p>As for my personal life, I'm married and have a beautiful 7-month-old daughter named Videl. We have a fluffy
+        Pomeranian named Milady. She's a pretty old lady now but does not act like it.</p>
+    </div>
 
-  <p>
-    Below are some of my favorite hobbies and interests:
-  <ul>
-    <li><strong>Community</strong> - A comedy show about a study group in a community college</li>
-    <li><strong>Dragon Ball Series</strong> - An ongoing anime series that includes Dragon Ball, Dragon Ball Z, and
-      Dragon Ball Super
-    </li>
-    <li><strong>Video Games</strong> - I'm a huge fan of video games that have an indepth storyline</li>
-    <li><strong>Hiking</strong> - One of my all time favorite trails has been the Billy Goat Trail at Great Falls in
-      Maryland</li>
-  </ul>
-  </p>
-  <br>
+    <p>Below are some of my favorite hobbies and interests:
+    <ul>
+      <li><strong>Community</strong> - A comedy show about a study group in a community college</li>
+      <li><strong>Dragon Ball Series</strong> - An ongoing anime series that includes Dragon Ball, Dragon Ball
+        Z, and Dragon Ball Super</li>
+      <li><strong>Video Games</strong> - I'm a huge fan of video games that have an in-depth storyline</li>
+      <li><strong>Hiking</strong> - One of my all-time favorite trails has been the Billy Goat Trail at Great
+        Falls in Maryland</li>
+    </ul>
+    </p>
+  </section>
 
-  <!--Links to websites-->
-  <h2>Website Links</h2>
-  <p>
-    Please click the links below to learn more about the topic:<br>
-  <ul style="list-style-type: square;">
-    <li><a title="" href="https://en.dragon-ball-official.com/" target="_blank">Dragon Ball Website</a></li>
-    <li><a title="" href="https://community-sitcom.fandom.com/wiki/Community" target="_blank">Community Wiki Site</a>
-    </li>
-    <li><a title="" href="https://www.nps.gov/choh/planyourvisit/billy-goat-trail.htm" target="_blank">Billy Goat
-        Trail</a></li>
-  </ul>
-  </p>
-  <br>
-
-  <!--Images-->
-  <h2>Images</h2>
-  <p>
-  <table border="0">
-    <tbody>
-      <tr>
-        <td><img src="Pictures/Fizzy.jpeg" alt=" Fizzy" width="250" /></td>
-        <td><img src="Pictures/Milady.jpg" alt="Milady" width="250" /></td>
-        <td><img src="Pictures/Tonya-Videl.jpg" alt="Wife and daughter" width="215" /></td>
-        <td><img src="Pictures/Videl.jpg" alt="daughter" width="265" /></td>
-      </tr>
-      <tr>
-        <td style="text-align: center;">Fizzy</td>
-        <td style="text-align: center;">Milady</td>
-        <td style="text-align: center;">Tonya and Videl</td>
-        <td style="text-align: center;">Videl</td>
-      </tr>
-    </tbody>
-  </table>
-  </p>
-
-  <!--Link to BMI Calculator Form-->
-  <h2><a href="/bmiCalculator.html">BMI Calculator</a></h2>
-
-
-
+  <footer>
+    &copy; 2023 Harsh's Webpage
+  </footer>
 </body>
 
 </html>

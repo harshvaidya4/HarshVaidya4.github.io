@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Total Calculator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        select,
+        input,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .total {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="#" method="post" id="orderForm">
+        <h2>Order Total Calculator</h2>
+
+        <label for="item">Choose Item:</label>
+        <select id="item" name="item">
+            <option value="" selected disabled>Select an item...</option>
+            <option value="item1">Pen - $5.00</option>
+            <option value="item2">Notebook - $8.00</option>
+            <option value="item3">Calculator - $10.00</option>
+            <option value="item4">Pencil Case - $12.00</option>
+            <option value="item5">Book Bag - $15.00</option>
+        </select>
+
+        <p><b>Quantities of 4+ will receive a 15% discount!</b></p>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="1" required>
+        <br><br>
+        <button type="button" onclick="calculateTotal()">Calculate Total</button>
+
+        <div class="total" id="totalSection" style="display: none;">
+            <p>Subtotal: $<span id="subtotal"></span></p>
+            <p>Discount Amount: $<span id="discountAmount"></span></p>
+            <p>Total with Discount: $<span id="totalWithDiscount"></span></p>
+        </div>
+    </form>
+
+    <script>
+        function calculateTotal() {
+            var itemPrices = {
+                'item1': 5.00,
+                'item2': 8.00,
+                'item3': 10.00,
+                'item4': 12.00,
+                'item5': 15.00
+            };
+
+            var discountThreshold = 4;
+            var discountPercentage = 0.15;
+
+            var selectedItem = document.getElementById('item');
+            var quantity = parseInt(document.getElementById('quantity').value, 10);
+
+            if (selectedItem.value) {
+                var itemPrice = itemPrices[selectedItem.value];
+                var subtotal = itemPrice * quantity;
+
+                // Apply discount for quantities 4+
+                var discountAmount = 0;
+                if (quantity >= discountThreshold) {
+                    discountAmount = subtotal * discountPercentage;
+                }
+
+                var totalWithDiscount = subtotal - discountAmount;
+
+                // Display results
+                document.getElementById('subtotal').textContent = subtotal.toFixed(2);
+                document.getElementById('discountAmount').textContent = discountAmount.toFixed(2);
+                document.getElementById('totalWithDiscount').textContent = totalWithDiscount.toFixed(2);
+
+                // Show the total section
+                document.getElementById('totalSection').style.display = 'block';
+            } else {
+                alert('Please choose an item.');
+            }
+        }
+    </script>
+
+</body>
+
+</html>

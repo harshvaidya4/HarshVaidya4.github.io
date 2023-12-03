@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Image Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 5;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav li {
+            margin: 0 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        main {
+            display: flex;
+            flex: 1;
+        }
+
+        .sidebar {
+            width: 20%;
+            background-color: #f2f2f2;
+            padding: 1em;
+        }
+
+        .image-container {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 1em;
+        }
+
+        .image-item {
+            margin: 1em;
+            overflow: hidden;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .image-item:hover {
+            transform: scale(1.05);
+        }
+
+        .image-item img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1><a href="/index.html"><img src="Pictures/4_star_dragon_ball.png" alt="logo" width="80"></a><br>
+            Image Gallery</h1>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/images.html">Images</a></li>
+                <li><a href="/multimedia.html">Multimedia</a></li>
+                <li><a href="/links.html">Links</a></li>
+                <li><a href="/forms.html">Forms</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="sidebar">
+            <h2>Categories</h2>
+            <ul>
+                <li><a href="#" onclick="filterImages('all')">All</a></li>
+                <li><a href="#" onclick="filterImages('family')">Family</a></li>
+                <li><a href="#" onclick="filterImages('city')">City</a></li>
+                <!-- Add more categories as needed -->
+            </ul>
+        </div>
+
+        <div class="image-container" id="imageContainer">
+            <!-- Add your image items here -->
+            <!-- Example: 
+                <div class="image-item nature">
+                    <img src="path/to/your/nature-image.jpg" alt="Nature Image">
+                </div>
+                <div class="image-item city">
+                    <img src="path/to/your/city-image.jpg" alt="City Image">
+                </div>
+            -->
+            <div class="image-item family">
+                <img src="Pictures/Fizzy.jpeg" alt=" Fizzy Image">
+                <img src="/Pictures/Tonya-Videl.jpg" alt="Tonya and Videl Image">
+                <img src="/Pictures/Videl.jpg" alt="Videl Image">
+                <img src="/Pictures/Milady.jpg" alt="MIlady Image">
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Your Website Name</p>
+    </footer>
+
+    <script>
+        function filterImages(category) {
+            const imageContainer = document.getElementById('imageContainer');
+            const allImages = document.querySelectorAll('.image-item');
+
+            allImages.forEach(image => {
+                image.style.display = 'none';
+            });
+
+            if (category === 'all') {
+                allImages.forEach(image => {
+                    image.style.display = 'block';
+                });
+            } else {
+                const filteredImages = document.querySelectorAll(`.${category}`);
+                filteredImages.forEach(image => {
+                    image.style.display = 'block';
+                });
+            }
+        }
+    </script>
+
+    <footer>
+        <p>&copy; 2023 Your Website Name</p>
+    </footer>
+
+</body>
+
+</html>
