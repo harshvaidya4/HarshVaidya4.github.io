@@ -1,1 +1,44 @@
 <h2><a href="/Forms/bmiCalculator.html">BMI Calculator</a></h2>
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Selector</title>
+    <style>
+        /* Add your styles here */
+        #form-container {
+            margin-top: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu options -->
+    <ul id="menu">
+        <li><a href="#" onclick="loadForm('contactInfoForm.html')">Form 1</a></li>
+        <li><a href="#" onclick="loadForm('form2.html')">Form 2</a></li>
+        <!-- Add more menu items as needed -->
+    </ul>
+
+    <!-- Container to display selected form -->
+    <div id="form-container">
+        <!-- Form content will be loaded here -->
+    </div>
+
+    <script>
+        function loadForm(formName) {
+            // Fetch and load the content of the selected form into the container
+            fetch(formName)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('form-container').innerHTML = data;
+                });
+        }
+    </script>
+</body>
+</html>

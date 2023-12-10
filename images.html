@@ -4,20 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Image Gallery</title>
+    <title>Harsh's Webpage</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f2f2f2;
+            background-color: #f4f4f4;
         }
 
         header {
             background-color: #333;
             color: #fff;
             text-align: center;
-            padding: 1em;
+            padding: 15px 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        header img {
+            vertical-align: middle;
         }
 
         nav ul {
@@ -41,48 +50,46 @@
 
         main {
             display: flex;
-            flex: 1;
+            padding: 20px;
         }
 
-        .sidebar {
-            width: 20%;
-            background-color: #f2f2f2;
-            padding: 1em;
+        aside {
+            width: 200px;
+            background-color: #ddd;
+            padding: 20px;
         }
 
-        .image-container {
+        section {
             flex: 1;
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
-            padding: 1em;
+            gap: 10px;
         }
 
-        .image-item {
-            margin: 1em;
-            overflow: hidden;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .image-item:hover {
-            transform: scale(1.05);
-        }
-
-        .image-item img {
+        img {
             max-width: 100%;
             height: auto;
-            display: block;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         }
 
+        .filter-btn {
+            display: block;
+            margin-bottom: 10px;
+            padding: 8px;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
         footer {
             background-color: #333;
             color: #fff;
             text-align: center;
-            padding: 1px 0;
+            padding: 10px 0;
             position: fixed;
             bottom: 0;
             width: 100%;
@@ -91,10 +98,9 @@
 </head>
 
 <body>
-
     <header>
-        <h1><a href="/index.html"><img src="Pictures/4_star_dragon_ball.png" alt="logo" width="80"></a><br>
-            Image Gallery</h1>
+        <h1><a href="/index.html"><img src="Pictures/4_star_dragon_ball.png" alt="logo" width="80"></a><br> Images
+        </h1>
         <nav>
             <ul>
                 <li><a href="/index.html">Home</a></li>
@@ -105,68 +111,42 @@
             </ul>
         </nav>
     </header>
-
     <main>
-        <div class="sidebar">
-            <h2>Categories</h2>
-            <ul>
-                <li><a href="#" onclick="filterImages('all')">All</a></li>
-                <li><a href="#" onclick="filterImages('family')">Family</a></li>
-                <li><a href="#" onclick="filterImages('city')">City</a></li>
-                <!-- Add more categories as needed -->
-            </ul>
-        </div>
-
-        <div class="image-container" id="imageContainer">
-            <!-- Add your image items here -->
-            <!-- Example: 
-                <div class="image-item nature">
-                    <img src="path/to/your/nature-image.jpg" alt="Nature Image">
-                </div>
-                <div class="image-item city">
-                    <img src="path/to/your/city-image.jpg" alt="City Image">
-                </div>
-            -->
-            <div class="image-item family">
-                <img src="Pictures/Fizzy.jpeg" alt=" Fizzy Image">
-                <img src="/Pictures/Tonya-Videl.jpg" alt="Tonya and Videl Image">
-                <img src="/Pictures/Videl.jpg" alt="Videl Image">
-                <img src="/Pictures/Milady.jpg" alt="MIlady Image">
-            </div>
-
-        </div>
+        <aside>
+            <a href="#" class="filter-btn" onclick="filterCategory('all')">All</a>
+            <a href="#" class="filter-btn" onclick="filterCategory('family')">Family</a>
+            <a href="#" class="filter-btn" onclick="filterCategory('pets')">Pets</a>
+            <a href="#" class="filter-btn" onclick="filterCategory('dbz')">DBZ</a>
+            <!-- Add more categories as needed -->
+        </aside>
+        <section id="image-gallery">
+            <!-- Your images will be displayed here -->
+            <img src="/Pictures/Tonya-Videl.jpg" alt="Family Image" class="family">
+            <img src="/Pictures/Videl.jpg" alt="Family Image" class="family">
+            <img src="/Pictures/Fizzy.jpeg" alt="Pets Image" class="pets">
+            <img src="/Pictures/Milady.jpg" alt="Pets Image" class="pets">
+            <img src="/Pictures/4_star_dragon_ball.png" alt="DBZ Image" class="dbz">
+            <!-- Add more images as needed -->
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2023 Your Website Name</p>
+        &copy; 2023 Harsh's Webpage
     </footer>
 
     <script>
-        function filterImages(category) {
-            const imageContainer = document.getElementById('imageContainer');
-            const allImages = document.querySelectorAll('.image-item');
+        function filterCategory(category) {
+            const images = document.querySelectorAll('#image-gallery img');
 
-            allImages.forEach(image => {
-                image.style.display = 'none';
+            images.forEach((image) => {
+                if (category === 'all' || image.classList.contains(category)) {
+                    image.style.display = 'block';
+                } else {
+                    image.style.display = 'none';
+                }
             });
-
-            if (category === 'all') {
-                allImages.forEach(image => {
-                    image.style.display = 'block';
-                });
-            } else {
-                const filteredImages = document.querySelectorAll(`.${category}`);
-                filteredImages.forEach(image => {
-                    image.style.display = 'block';
-                });
-            }
         }
     </script>
-
-    <footer>
-        <p>&copy; 2023 Your Website Name</p>
-    </footer>
-
 </body>
 
 </html>
