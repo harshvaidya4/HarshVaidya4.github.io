@@ -1,39 +1,138 @@
-<h2><a href="/Forms/bmiCalculator.html">BMI Calculator</a></h2>
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Selector</title>
+    <title>Harsh's Webpage</title>
     <style>
-        /* Add your styles here */
-        #form-container {
-            margin-top: 20px;
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
         }
 
-        .hidden {
-            display: none;
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        header img {
+            vertical-align: middle;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 5;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav li {
+            margin: 0 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        #menu {
+            list-style-type: none;
+            margin: 20px 0 0;
+            padding: 0;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        #menu li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        #menu li a {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        #menu li a:hover {
+            color: #2980b9;
+        }
+
+        #form-container {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
+
 <body>
-    <!-- Menu options -->
+    <header>
+        <h1><a href="/index.html"><img src="Pictures/4_star_dragon_ball.png" alt="logo" width="80"></a><br> Harsh's Webpage
+        </h1>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/images.html">Images</a></li>
+                <li><a href="/multimedia.html">Multimedia</a></li>
+                <li><a href="/links.html">Links</a></li>
+                <li><a href="/forms.html">Forms</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <ul id="menu">
-        <li><a href="#" onclick="loadForm('contactInfoForm.html')">Form 1</a></li>
-        <li><a href="#" onclick="loadForm('form2.html')">Form 2</a></li>
+        <li><a href="#" onclick="loadForm('bmiCalculator.html')">BMI Calculator</a></li>
+        <li><a href="#" onclick="loadForm('contactInfoForm.html')">Contact Info Form</a></li>
+        <li><a href="#" onclick="loadForm('orderForm.html')">Order Form</a></li>
         <!-- Add more menu items as needed -->
     </ul>
 
-    <!-- Container to display selected form -->
     <div id="form-container">
         <!-- Form content will be loaded here -->
     </div>
+    <footer>
+        &copy; 2023 Harsh's Webpage
+    </footer>
 
     <script>
         function loadForm(formName) {
             // Fetch and load the content of the selected form into the container
-            fetch(formName)
+            fetch('Forms/' + formName)
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('form-container').innerHTML = data;
@@ -41,4 +140,5 @@
         }
     </script>
 </body>
+
 </html>
